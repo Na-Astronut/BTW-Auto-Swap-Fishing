@@ -1,78 +1,72 @@
-# Fabric Example Mod
+# 🎣 Auto & Swap Fish (BTW Addon)
 
-- [Quick start guide](#quick-start-guide)
-  - [Introduction to the folder structure](#introduction-to-the-folder-structure)
-  - [Creating your mod](#creating-your-mod)
-  - [Useful gradle commands](#useful-gradle-commands)
-- [More info](#more-info)
-- [License](#license)
+![Fabric](https://img.shields.io/badge/Loader-Fabric-beige?style=flat-square)
+![MC](https://img.shields.io/badge/Minecraft-1.6.4-green?style=flat-square)
+![BTW](https://img.shields.io/badge/BTW-CE_3.0.x-red?style=flat-square)
+[![Patreon](https://img.shields.io/badge/Support-Patreon-F96854?style=flat-square&logo=patreon&logoColor=white)](https://www.patreon.com/cw/u69669520)
 
-## Quick start guide
+**Auto & Swap Fish** is a Quality-of-Life (QoL) client-side mod for **Better Than Wolves (Community Edition)**. It is designed to automate the tedious fishing process, allowing you to catch fish efficiently without staring at the screen for hours.
 
-* Clone this repository
-* Launch the *install.bat*
-* Wait till it fully finishes
-* Run the gradle task *build* and then *runClient*
+> *Created by **NaAstronut** with the assistance of AI.* 🤖
 
-### Introduction to the folder structure
+---
 
-**Build files:**
+## ✨ Features
 
-| File                | Description                                              |
-| ------------------- | -------------------------------------------------------- |
-| `build.gradle`      | Configures the compilation process.                      |
-| `gradle.properties` | Contains properties for Minecraft, fabric, and your mod. |
-| `settings.gradle`   | Configures the plugin repositories.                      |
+### 1. 🤖 Auto-Reel (Instant Reaction)
+The mod detects the exact moment a fish bites (using server sound packet detection) and reels it in instantly.
+* **Zero Latency:** No more "Bait Stolen" messages.
+* **Precise:** Works perfectly with BTW's difficult fishing mechanics.
 
-**Fabric files:**
+### 2. 🔄 Auto-Rod Swapping
+When your current fishing rod breaks or loses its bait (turns into an unbaited rod):
+* The mod automatically scans your **Hotbar (Slots 1-9)** for another *Baited Fishing Rod*.
+* It swaps to the new rod and casts immediately.
+* **Note:** You must keep spare rods in your hotbar for this to work.
 
-These files are located at `src/main/resources`.
+### 3. 🥩 Auto-Baiting (Smart Crafting)
+If you run out of baited rods but have an **Unbaited Rod** + **Bait** in your inventory:
+* The mod will simulate inventory clicks to **craft bait onto the rod automatically!**
+* **Supported Baits:**
+    * **Vanilla:** Raw Pork, Raw Beef, Raw Chicken, Rotten Flesh, Spider Eye.
+    * **BTW:** Bat Wing, Creeper Oysters, Witch Wart, etc.
 
-| File                    | Description                              | Additional information                                                                                                |
-| ----------------------- | ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| `fabric.mod.json`       | Contains metadata about your mod.        | [wiki:fabric_mod_json_spec](https://fabricmc.net/wiki/documentation:fabric_mod_json_spec)                             |
-| `modid.mixins.json`     | Contains a list of all your mixin files. | [wiki:mixin_registration](https://fabricmc.net/wiki/tutorial:mixin_registration)                                      |
-| `assets/modid/icon.png` | The icon of your mod.                    | [wiki:fabric_mod_json_spec#icon](https://fabricmc.net/wiki/documentation:fabric_mod_json_spec?s[]=icon#custom_fields) |
+---
 
+## 📥 Installation
 
-### Creating your mod
+1.  Ensure you have **Minecraft 1.6.4** installed with **Fabric Loader (Legacy)**.
+2.  Install **Better Than Wolves CE 3.0.0+**.
+3.  Download the latest `.jar` file from the [Releases Page](../../releases).
+    * *Note: Download the normal `.jar` file (not the `-sources` one).*
+4.  Drop the file into your `.minecraft/mods` folder.
+5.  Launch the game!
 
-First of you must replace all occurrences of `modid` with the id of your mod.
+---
 
-If your mod doesn't use mixins you can safely remove the mixin entry in your `fabric.mod.json` as well as delete any `*.mixin.json` files.
+## 🛠️ How to Use
 
-This template has the legacy fabric api included in it's build script, more info about the api can be found at it's [github repo](https://github.com/Legacy-Fabric/fabric).
-If you know what you are doing you can also safely remove the api from the build script as it isn't required.
+1.  **Prepare:** Put multiple **Baited Fishing Rods** in your **Hotbar**.
+2.  **Start:** Hold a rod and cast the line into the water (Right Click).
+3.  **Relax:** The mod will handle reeling, swapping, and re-casting automatically.
+4.  **Stopping:** To stop the auto-fish loop, simply switch to a different item (like a sword) or move away.
 
-### Useful gradle commands
+---
 
-```sh
-# Compile your mod
-./gradlew build
+## ☕ Support Me
 
-# Remove old build files
-./gradlew clean
+If you like this mod and want to support my work (or buy me a coffee), feel free to check out my Patreon!
 
-# Generate Minecraft sources
-./gradlew genSources
+[![Patreon](https://img.shields.io/badge/Support_on-Patreon-F96854?style=for-the-badge&logo=patreon&logoColor=white)](https://www.patreon.com/cw/u69669520)
 
-# Launch a modded Minecraft client
-./gradlew runClient
+---
 
-# Kill gradle if it's doing stupid things
-./gradlew --stop
-```
+## ⚠️ Known Issues / Limitations
+* **Inventory Full:** If your inventory is full, the mod will stop fishing to prevent item loss.
+* **Hotbar Only:** The Auto-Swap feature currently only looks for rods in the Hotbar (Slots 1-9).
+* **Multiplayer:** This is a client-side mod. Use responsibly on servers; some server owners may consider this a macro/bot.
 
-## More info
+---
 
-Additional tutorials and tips can be found in the [wiki](https://github.com/Legacy-Fabric/fabric-example-mod/wiki).
-
-For more detailed setup instructions please see the [fabric wiki](https://fabricmc.net/wiki/tutorial:setup).
-
-If you are new to fabric or Minecraft modding in general then [this wiki page](https://fabricmc.net/wiki/tutorial:primer) may help you.
-
-## License
-
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
-This project incorporates:
-* A precompiled version of [Tiny Remapper](https://github.com/FabricMC/tiny-remapper) (LGPL-3.0)
+## 📜 License
+This project is licensed under **CC0-1.0** (Public Domain). Feel free to learn from the code or use it however you like!
